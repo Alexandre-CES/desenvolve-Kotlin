@@ -1,5 +1,13 @@
 
 fun main() {
+    //basics()
+    //hello("Alexandre")
+    //println("sum(2,3) : ${sum(2,3)}")
+
+    lists()
+}
+
+fun basics(){
     val name:String = "Kotlin"
     val age:Int = 12
     var payment:Double = 1500.30
@@ -9,12 +17,7 @@ fun main() {
         println("i = $i | payment = $payment")
     }
 
-    fun sum(a: Int, b: Int): Int {
-        return a + b
-    }
-
     println("Hello, " + name + "!")
-    println("sum(1,2) : ${sum(age,3)}")
     println(age <= payment)
 
     if(age <= 12){
@@ -44,6 +47,31 @@ fun main() {
         println(counter)
         counter++
     }
+}
 
+fun hello(name: String){
+    println("Hello, $name!")
+}
 
+fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+
+fun lists(){
+    val numbers = listOf(1,2,3,4,5)
+
+    println(numbers[0])
+    println(numbers[1])
+
+    val fruits = mutableListOf("Appl", "Banana")
+
+    println(fruits.size)
+    println(fruits)
+
+    fruits.add("Grape")
+    fruits.removeAt(1)
+    fruits[0] = "Apple"
+
+    println(fruits.size)
+    println(fruits)
 }
