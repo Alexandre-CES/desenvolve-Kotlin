@@ -14,8 +14,15 @@ fun main() {
     myCar.turnOn()
     */
 
+    /*
     val person = Person("Alexandre", 19)
     person.hello()
+    */
+
+    val bankAccount = BankAccount()
+    println(bankAccount.accountNumber)
+    bankAccount.showBalance()
+
 }
 
 fun basics(){
@@ -28,7 +35,7 @@ fun basics(){
         println("i = $i | payment = $payment")
     }
 
-    println("Hello, " + name + "!")
+    println("Hello, $name!")
     println(age <= payment)
 
     if(age <= 12){
@@ -99,5 +106,14 @@ class Car{
 class Person(val name:String,val age:Int){
     fun hello(){
         println("Hello, my name is $name and i am $age")
+    }
+}
+
+class BankAccount{
+    var accountNumber:String = "2131224"
+    private var balance:Double = 1000.0
+
+    fun showBalance(){
+        println("The balance is $balance")
     }
 }
