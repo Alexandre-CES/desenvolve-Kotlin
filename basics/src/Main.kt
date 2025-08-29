@@ -3,8 +3,19 @@ fun main() {
     //basics()
     //hello("Alexandre")
     //println("sum(2,3) : ${sum(2,3)}")
+    //lists()
 
-    lists()
+    /*
+    val myCar = Car()
+    myCar.model = "Ferrari"
+    myCar.year = 2020
+
+    println("Model: ${myCar.model}, Year: ${myCar.year}")
+    myCar.turnOn()
+    */
+
+    val person = Person("Alexandre", 19)
+    person.hello()
 }
 
 fun basics(){
@@ -74,4 +85,19 @@ fun lists(){
 
     println(fruits.size)
     println(fruits)
+}
+
+class Car{
+    var model:String = "Unknown"
+    var year:Int = 0
+
+    fun turnOn(){
+        println("Car $model is turning on")
+    }
+}
+
+class Person(val name:String,val age:Int){
+    fun hello(){
+        println("Hello, my name is $name and i am $age")
+    }
 }
