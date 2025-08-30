@@ -19,9 +19,13 @@ fun main() {
     person.hello()
     */
 
+    /*
     val bankAccount = BankAccount()
     println(bankAccount.accountNumber)
     bankAccount.showBalance()
+    */
+
+    exceptions()
 
 }
 
@@ -116,4 +120,31 @@ class BankAccount{
     fun showBalance(){
         println("The balance is $balance")
     }
+}
+
+fun exceptions(){
+    try{
+        val result = 10 / 0
+        println(result)
+    }catch (e: ArithmeticException){
+        println(e)
+    }finally{
+        println("Finally")
+    }
+
+    val numbers = listOf(1,2,3,4,5)
+    try{
+        println(numbers[5])
+    }catch(e: IndexOutOfBoundsException){
+        println(e)
+    }
+
+    try{
+        var list = listOf(1,2,3,4,5)
+        val number = "abc".toInt()
+        println(list[5])
+    }catch(e: Exception){
+        println(e.message)
+    }
+
 }
