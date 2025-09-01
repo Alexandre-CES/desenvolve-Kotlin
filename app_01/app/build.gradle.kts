@@ -40,20 +40,23 @@ android {
 }
 
 dependencies {
+    // Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.5")
 
-    implementation("androidx.activity:activity-compose:1.7.0") // Componente de Activity
-    implementation("androidx.compose.ui:ui:1.5.0") // Biblioteca base do Compose
-    implementation("androidx.compose.material:material:1.5.0") // Material Design
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0") // Para gerenciamento de ciclo de vida
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
+    // Compose BOM (mantém todas as libs alinhadas)
     implementation(platform(libs.androidx.compose.bom))
+
+    // Fundamentos do Compose
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // Activity e ciclo de vida
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    // Testes
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

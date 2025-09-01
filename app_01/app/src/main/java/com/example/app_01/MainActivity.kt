@@ -1,53 +1,56 @@
-package com.example.app_01
-
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent { //Define o conteúdo da Activity usando Compose.
-            MinhaTela()
+@Composable
+fun AppNavigation() {
+    val navController = rememberNavController()
+
+    NavHost(
+        navController = navController,
+        startDestination = "tela1"
+    ) {
+        composable("tela1") { Tela1(navController) }
+        composable("tela2") { Tela2(navController) }
+    }
+}
+
+@Composable
+fun Tela1(navController: NavController) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Bem-vindo à Tela 1",
+            style = MaterialTheme.typography.headlineMedium
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = { navController.navigate("tela2") }) {
+            Text(text = "Ir para Tela 2")
         }
     }
 }
 
 @Composable
-fun MinhaTela() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.LightGray)
-            .padding(16.dp)
-    ){
-        Column( //Organiza os componentes verticalmente.
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
-        ){
-            Text(
-                text = "Olá, Jetpack Compose!",
-                style = MaterialTheme.typography.headlineMedium
-            )
-            //Exibe um texto.
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = { /* Ação do botão */ }){
-                //Cria um botão interativo.
-                Text(text = "Clique Aqui")
-            }
+fun Tela2(navController: NavController) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Você está na Tela 2",
+            style = MaterialTheme.typography.headlineMedium
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = { navController.navigate("tela1") }) {
+            Text(text = "Voltar para Tela 1")
         }
     }
-
 }
